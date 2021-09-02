@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets, response, status
-from saas_profile.serializers import user_model, SER_User #, SER_Login
+from saas_profile.serializers import user_model, SER_User
 from rest_auth.views import LoginView
 from rest_auth.registration.views import RegisterView
 from rest_auth.serializers import LoginSerializer

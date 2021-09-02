@@ -15,22 +15,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import include, url
+from django.conf.urls import include
+from django.views.generic import TemplateView
+from django.conf.urls.static import static
 from rest_framework import routers
-from rest_framework.authtoken import views
-# from saas.views import login
-from saas_profile.views import ApiLoginView, ApiRegisterView #, UserVS, ModPrivilegesVS
+from saas_profile.views import ApiLoginView, ApiRegisterView
+from saas import settings
 
 
 api_router = routers.DefaultRouter()
-# api_router.register('user_accounts', UserVS)
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('login/', login),
     path('rest-auth/', include('rest_auth.urls')),
+    # path('auth/', include('rest_framework.authtoken')),
     path('api/login/', ApiLoginView.as_view()),
     path('api/register/', ApiRegisterView.as_view()),
     path('rest-auth/registration/', include('rest_auth.registration.urls')),
+
+    # pages
+    path('', TemplateView.as_view(template_name='index.html'), name='home_page'),
 ]
 
-urlpatterns += api_router.urls
+# urlpatterns += api_router.urls

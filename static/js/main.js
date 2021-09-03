@@ -28,6 +28,20 @@ $(window).on('load', function() {
 		event.preventDefault();
 	});
 
+	$('#user_log_out').on('click', function(event) {
+		$.ajax({
+			url: "/rest-auth/logout/",
+			type: "POST",
+			success: function(response) {
+			  Cookies.remove('token');
+			  localStorage.clear();
+			  window.location.reload(true);
+			  return true;
+			}
+		});
+		return true;
+	});
+
 
 	/*------------------
 		Background Set

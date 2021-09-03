@@ -5,6 +5,9 @@ from rest_auth.views import LoginView
 from rest_auth.registration.views import RegisterView
 from rest_auth.serializers import LoginSerializer
 from rest_auth.registration.serializers import RegisterSerializer
+from rest_framework.views import APIView
+from rest_framework import authentication, permissions
+from django.http import HttpResponse
 
 
 # Create your views here.
@@ -47,3 +50,16 @@ class ApiLoginView(LoginView):
         }
         response.data = additional_data
         return response
+
+
+class ApiAuthView(APIView):
+    authentication_classes = (authentication.TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def get(self, request, format=None):
+        return HttpResponse(True)
+        # try:
+        #     return True
+        # except:
+        #     return False
+        # return Response("Hello {0}!".format(request.user))

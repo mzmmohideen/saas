@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SaaS Log In</title>
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="{% static 'fontawesome/css/font-awesome.min.css' %}"> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login_style.css' %}"/>
+    <style>
+        body {
+            background: #000 url("{% static 'img/Frontpage.png' %}")
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <section class="main">
+        <form class="form-2" id="login_data">
+            <h1 align="center">
+                <!-- <span style="color:blue"> SAAS </span> -->
+                <span class="log-in">Sign-in</span>
+            </h1>
+
+            <p class="float">
+                <label for="login"><i class="fa fa-user"></i>Username</label>
+                <input id="username" type="text" name="username" placeholder="Username">
+            </p>
+
+            <p class="float">
+                <label for="password"><i class="fa fa-lock"></i>Password</label>
+                <input id="password" type="password" name="password" placeholder="Password" class="showpassword">
+            </p>
+
+            <p class="clearfix">
+                <input id="btn_submit" type="submit" value="Log In">
+                <input id="btn_submit_reg" type="submit" value="Register">
+            </p>
+        </form>
+    </section>
+</div>
+<!-- scripts -->
+<!-- <script type="text/javascript" src="{% static 'misc/jquery-1.11.0.min.js' %}"></script> -->
+<!-- <script type="text/javascript" src="{% static 'misc/underscore-min.js' %}"></script> -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+<script type="text/javascript" src="{% static 'js/login.js' %}"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".showpassword").each(function (index, input) {
+            var $input = $(input);
+            $("<p class='opt'/>").append(
+                $("<input type='checkbox' class='showpasswordcheckbox' id='showPassword' />").click(function () {
+                    var change = $(this).is(":checked") ? "text" : "password";
+                    var rep = $("<input placeholder='Password' type='" + change + "' />")
+                        .attr("id", $input.attr("id"))
+                        .attr("name", $input.attr("name"))
+                        .attr('class', $input.attr('class'))
+                        .val($input.val())
+                        .insertBefore($input);
+                    $input.remove();
+                    $input = rep;
+                })
+            ).append($("<label for='showPassword'/>").text("Show password")).insertAfter($input.parent());
+        });
+
+        $('#showPassword').click(function () {
+            if ($("#showPassword").is(":checked")) {
+                $('.fa.fa-lock').addClass('fa, fa-unlock');
+                $('.fa.fa-unlock').removeClass('fa, fa-lock');
+            } else {
+                $('.fa.fa-unlock').addClass('fa, fa-lock');
+                $('.fa.fa-lock').removeClass('fa, fa-unlock');
+            }
+        });
+        login.init();
+    });
+</script>
+</body>
+</html>

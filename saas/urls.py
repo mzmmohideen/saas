@@ -19,7 +19,7 @@ from django.conf.urls import include
 from django.views.generic import TemplateView
 from django.conf.urls.static import static
 from rest_framework import routers
-from saas_profile.views import ApiLoginView, ApiRegisterView
+from saas_profile.views import ApiLoginView, ApiRegisterView, ApiAuthView
 from saas import settings
 
 
@@ -30,10 +30,15 @@ urlpatterns = [
     # path('auth/', include('rest_framework.authtoken')),
     path('api/login/', ApiLoginView.as_view()),
     path('api/register/', ApiRegisterView.as_view()),
+    path('api/auth/', ApiAuthView.as_view()),
     path('rest-auth/registration/', include('rest_auth.registration.urls')),
 
     # pages
-    path('', TemplateView.as_view(template_name='index.html'), name='home_page'),
+    path('home/', TemplateView.as_view(template_name='home.html'), name='home_page'),
+    path('videos/', TemplateView.as_view(template_name='videos.html'), name='videos_page'),
+    path('contact/', TemplateView.as_view(template_name='contact.html'), name='contact_page'),
+    path('review/', TemplateView.as_view(template_name='review.html'), name='review_page'),
+    path('', TemplateView.as_view(template_name='login.html'), name='login_page'),
 ]
 
 # urlpatterns += api_router.urls

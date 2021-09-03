@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-w=ma3e2()ds!-r=1ajeg%f)lql=24w!el@bg%as)#+8vz7jq*0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', ]
 
 
 # Application definition
@@ -63,9 +63,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'saas.middleware.SaasMiddleware'
 ]
 
 ROOT_URLCONF = 'saas.urls'
+
+# LOGIN_REDIRECT_URL = '/'
 
 TEMPLATES = [
     {

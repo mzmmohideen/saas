@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    SaaS Video Page
+{% endblock %}
+
+{% block content %}
+<section class="page-info-section set-bg" data-setbg="{% static 'img/0005.jpg' %}">
+	<div class="pi-content">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-10 col-lg-20 text-white">
+					<h2>Video Gallery</h2>
+					<p style="font-size:20px;">Curated list of online videos on home exercises,mind relaxation & personal development</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Page info section -->
+
+
+<!-- Page section -->
+<section class="page-section recent-game-page spad">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-16">
+				<div class="row">
+					<div class="col-md-6">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/NQcYZplTXnQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					<div class="col-md-6">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/_tCkVxw3cc8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					<div class="col-md-6">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/x12GnuV9Qgw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					<div class="col-md-6">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/SedzswEwpPw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					<div class="col-md-6">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/t2NUI7jM4tg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>	
+					</div>
+					<div class="col-md-6">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/RoIYAoAalmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Page section end -->
+
+
+<!-- Footer top section -->
+<section class="footer-top-section">
+	<div class="container">
+		<div class="footer-top-bg">
+		</div>
+		<div class="row">
+			<div class="col-lg-20">
+				<div class="footer-logo text-white">
+					<img src="{% static 'img/sonylogo.png' %}" alt="">
+					<p> <strong> <h5> Our Goal </strong> </h5> <br> To create an online platform that helps Sony Employees develop a Healthy mind, Healthy body and Healthy Life.</p>
+				</div>
+			</div>
+	</div>
+</section>
+{% endblock %}
